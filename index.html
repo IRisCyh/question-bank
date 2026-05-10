@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Momentum Question Bank</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Interactive Question Bank</p>
+          <h1>Momentum Worksheet</h1>
+        </div>
+        <div class="score-card" aria-live="polite">
+          <span>Score</span>
+          <strong id="score">0 / 9</strong>
+        </div>
+      </header>
+
+      <section id="student-start-panel" class="student-start-panel">
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Student identity</p>
+            <h2>Choose Your Name</h2>
+          </div>
+        </div>
+
+        <form id="student-start-form" class="student-start-form">
+          <label>
+            <span>Class</span>
+            <select id="class-select" required></select>
+          </label>
+          <label>
+            <span>Student Name</span>
+            <select id="student-select" required></select>
+          </label>
+          <button id="start-quiz-button" type="submit">Start Quiz</button>
+        </form>
+
+        <div id="student-start-status" class="submission-status" aria-live="polite"></div>
+      </section>
+
+      <section id="quiz-panel" class="quiz-panel" aria-labelledby="question-title" hidden>
+        <div class="quiz-meta">
+          <span id="question-position">Question 1 of 11</span>
+          <span id="question-type">Multiple choice</span>
+          <span id="student-identity-label"></span>
+        </div>
+
+        <h2 id="question-title">Loading question...</h2>
+        <div id="question-text" class="question-text"></div>
+        <div id="topic-tags" class="topic-tags"></div>
+
+        <form id="answer-form" class="answer-form"></form>
+
+        <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+
+        <div class="actions">
+          <button id="prev-button" type="button">Previous</button>
+          <button id="submit-button" type="button">Submit</button>
+          <button id="next-button" type="button">Next</button>
+        </div>
+      </section>
+
+      <section id="review-section" class="review-panel" hidden>
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Review</p>
+            <h2>Review Mistakes</h2>
+          </div>
+          <p id="final-score"></p>
+        </div>
+        <div id="mistakes-list" class="mistakes-list"></div>
+      </section>
+
+      <section id="teacher-submission-section" class="teacher-submission-panel" hidden>
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Teacher record</p>
+            <h2>Submit to Teacher</h2>
+          </div>
+          <p id="submission-score-summary"></p>
+        </div>
+
+        <form id="teacher-submission-form" class="teacher-submission-form">
+          <p id="teacher-submission-identity" class="selected-student-summary"></p>
+          <button id="teacher-submit-button" type="submit">Submit to Teacher</button>
+        </form>
+
+        <div id="teacher-submission-status" class="submission-status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
