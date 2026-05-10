@@ -1246,8 +1246,8 @@ button:disabled {
   }
 
   .textbook-section {
-    height: calc(131.4vw + 20px);
-    max-height: 1472px;
+    height: calc(150.3vw + 20px);
+    max-height: 1680px;
     padding-bottom: 20px;
     overflow: hidden;
     touch-action: pan-x pan-y pinch-zoom;
@@ -1256,7 +1256,7 @@ button:disabled {
   .textbook-page {
     width: var(--page-width);
     min-width: var(--page-width);
-    height: 1452px;
+    height: 1660px;
     overflow: hidden;
     margin: 0;
     transform: scale(calc(100vw / var(--page-width)));
@@ -1265,6 +1265,10 @@ button:disabled {
 
   .textbook-page.is-refreshing-layout {
     transform: translateZ(0) scale(calc(100vw / var(--page-width)));
+  }
+
+  .textbook-page .testing {
+    top: 1165px;
   }
 
   .page-shell {
