@@ -151,24 +151,24 @@ textarea {
 
 .figure-2 .figure2-controls {
   position: absolute;
-  left: -170px;
-  top: 5px;
-  width: 154px;
-  padding: 7px 8px 8px;
+  left: -228px;
+  top: 0;
+  width: 210px;
+  padding: 10px 12px 11px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.94);
   color: #334044;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  line-height: 1.05;
+  font-size: 13px;
+  line-height: 1.15;
 }
 
 .figure-2 .figure2-controls label {
   display: grid;
-  grid-template-columns: 24px 1fr 45px;
+  grid-template-columns: 30px 1fr 58px;
   align-items: center;
-  gap: 5px;
-  margin-bottom: 5px;
+  gap: 8px;
+  margin-bottom: 7px;
 }
 
 .figure-2 .figure2-controls span {
@@ -187,7 +187,7 @@ textarea {
 
 .figure-2 .figure2-controls output {
   color: #4d5a5d;
-  font-size: 10px;
+  font-size: 12px;
   text-align: right;
   white-space: nowrap;
 }
@@ -195,26 +195,26 @@ textarea {
 .figure-2 .figure2-results {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  margin-top: 5px;
-  padding-top: 5px;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
   border-top: 1px solid #dfe3df;
 }
 
 .figure-2 .figure2-results strong {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
   color: #222;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
 }
 
 .figure-2 .figure2-status {
-  margin: 5px 0 0;
+  margin: 8px 0 0;
   color: #647074;
-  font-size: 10px;
-  line-height: 1.1;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .figure-2 .figure2-svg {
