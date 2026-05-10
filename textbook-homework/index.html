@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>9.3 Conservation of Momentum + Homework 2</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="book-shell">
+      <nav class="top-bar" aria-label="Section navigation">
+        <a href="#textbook">Textbook</a>
+        <a href="#homework">Homework 2</a>
+      </nav>
+
+      <section id="textbook" class="textbook-section" aria-label="Textbook page">
+        <article class="textbook-page" aria-label="AQA Physics textbook page 162">
+          <header class="section-tab">9.3 Conservation of momentum</header>
+
+          <figure class="figure figure-2">
+            <div class="figure2-controls" aria-label="Figure 2 collision variables">
+              <label>
+                <span>m<sub>A</sub></span>
+                <input id="figure2-mA" type="range" min="0.5" max="5" step="0.1" value="1">
+                <output id="figure2-mA-value">1.0 kg</output>
+              </label>
+              <label>
+                <span>m<sub>B</sub></span>
+                <input id="figure2-mB" type="range" min="0.5" max="5" step="0.1" value="1">
+                <output id="figure2-mB-value">1.0 kg</output>
+              </label>
+              <label>
+                <span>u<sub>A</sub></span>
+                <input id="figure2-uA" type="range" min="0" max="3" step="0.1" value="2">
+                <output id="figure2-uA-value">2.0 m/s</output>
+              </label>
+              <label>
+                <span>u<sub>B</sub></span>
+                <input id="figure2-uB" type="range" min="0" max="3" step="0.1" value="0.8">
+                <output id="figure2-uB-value">0.8 m/s</output>
+              </label>
+              <div class="figure2-results" aria-live="polite">
+                <span>v<sub>A</sub> <strong id="figure2-vA-value">0.8 m/s</strong></span>
+                <span>v<sub>B</sub> <strong id="figure2-vB-value">2.0 m/s</strong></span>
+              </div>
+              <p id="figure2-status" class="figure2-status">click diagram to play</p>
+            </div>
+
+            <svg class="figure2-svg" viewBox="0 0 447 226" role="button" tabindex="0" aria-label="Play Figure 2 collision animation">
+              <defs>
+                <marker id="figure2-arrow" markerWidth="6" markerHeight="5" refX="5.4" refY="2.5" orient="auto">
+                  <path d="M0,0 L6,2.5 L0,5 Z"></path>
+                </marker>
+                <marker id="figure2-force-arrow" markerWidth="6" markerHeight="5" refX="5.4" refY="2.5" orient="auto">
+                  <path d="M0,0 L6,2.5 L0,5 Z"></path>
+                </marker>
+                <filter id="figure2-soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="1" stdDeviation="0.8" flood-color="#6c6658" flood-opacity="0.35"></feDropShadow>
+                </filter>
+              </defs>
+
+              <g class="figure2-row figure2-row-before">
+                <text class="figure2-row-label" x="0" y="27">before<tspan x="0" dy="17">impact</tspan></text>
+                <line class="figure2-track-shadow" x1="5" y1="66" x2="444" y2="66"></line>
+                <line class="figure2-track" x1="5" y1="61" x2="444" y2="61"></line>
+                <g id="figure2-before-a" class="figure2-ball" transform="translate(120 44)">
+                  <circle r="16"></circle>
+                  <text y="5">A</text>
+                </g>
+                <g id="figure2-before-b" class="figure2-ball" transform="translate(259 44)">
+                  <circle r="16"></circle>
+                  <text y="5">B</text>
+                </g>
+                <text id="figure2-uA-label" class="figure2-symbol" x="99" y="21">u<tspan class="figure2-sub">A</tspan></text>
+                <line id="figure2-uA-arrow" class="figure2-velocity" x1="121" y1="22" x2="153" y2="22"></line>
+                <text id="figure2-uB-label" class="figure2-symbol" x="239" y="21">u<tspan class="figure2-sub">B</tspan></text>
+                <line id="figure2-uB-arrow" class="figure2-velocity" x1="259" y1="22" x2="293" y2="22"></line>
+              </g>
+
+              <g class="figure2-row figure2-row-during">
+                <text class="figure2-row-label" x="0" y="103">during<tspan x="0" dy="17">impact</tspan></text>
+                <line class="figure2-track-shadow" x1="5" y1="141" x2="444" y2="141"></line>
+                <line class="figure2-track" x1="5" y1="136" x2="444" y2="136"></line>
+                <g id="figure2-during-a" class="figure2-ball" transform="translate(225 119)">
+                  <circle r="16"></circle>
+                  <text y="5">A</text>
+                </g>
+                <g id="figure2-during-b" class="figure2-ball" transform="translate(257 119)">
+                  <circle r="16"></circle>
+                  <text y="5">B</text>
+                </g>
+                <text id="figure2-f1-label" class="figure2-symbol figure2-force-label" x="188" y="111">F<tspan class="figure2-sub">1</tspan></text>
+                <line id="figure2-during-a-arrow" class="figure2-velocity figure2-force-arrow" x1="225" y1="119" x2="193" y2="119"></line>
+                <text id="figure2-f2-label" class="figure2-symbol figure2-force-label" x="292" y="111">F<tspan class="figure2-sub">2</tspan></text>
+                <line id="figure2-during-b-arrow" class="figure2-velocity figure2-force-arrow" x1="257" y1="119" x2="289" y2="119"></line>
+              </g>
+
+              <g class="figure2-row figure2-row-after">
+                <text class="figure2-row-label" x="0" y="178">after<tspan x="0" dy="17">impact</tspan></text>
+                <line class="figure2-track-shadow" x1="5" y1="216" x2="444" y2="216"></line>
+                <line class="figure2-track" x1="5" y1="211" x2="444" y2="211"></line>
+                <g id="figure2-after-a" class="figure2-ball" transform="translate(296 194)">
+                  <circle r="16"></circle>
+                  <text y="5">A</text>
+                </g>
+                <g id="figure2-after-b" class="figure2-ball" transform="translate(407 194)">
+                  <circle r="16"></circle>
+                  <text y="5">B</text>
+                </g>
+                <text id="figure2-vA-label" class="figure2-symbol" x="277" y="171">v<tspan class="figure2-sub">A</tspan></text>
+                <line id="figure2-vA-arrow" class="figure2-velocity" x1="296" y1="172" x2="329" y2="172"></line>
+                <text id="figure2-vB-label" class="figure2-symbol" x="389" y="171">v<tspan class="figure2-sub">B</tspan></text>
+                <line id="figure2-vB-arrow" class="figure2-velocity" x1="408" y1="172" x2="442" y2="172"></line>
+              </g>
+
+              <g class="figure2-motion-layer" aria-hidden="true">
+                <g class="figure2-motion-ball figure2-motion-a">
+                  <circle r="16"></circle>
+                  <text y="5">A</text>
+                </g>
+                <g class="figure2-motion-ball figure2-motion-b">
+                  <circle r="16"></circle>
+                  <text y="5">B</text>
+                </g>
+              </g>
+            </svg>
+            <figcaption><span class="caption-triangle">&#9650;</span> <strong>Figure 2</strong> <em>Conservation of momentum</em></figcaption>
+          </figure>
+
+          <section class="derivation" aria-label="Formula derivation">
+            <p>
+              Therefore,
+              <math class="inline-math tall-math" xmlns="http://www.w3.org/1998/Math/MathML">
+                <msub><mi>F</mi><mn>2</mn></msub>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <msub><mi>m</mi><mi>B</mi></msub><msub><mi>v</mi><mi>B</mi></msub>
+                    <mo>-</mo>
+                    <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
+                  </mrow>
+                  <mi>t</mi>
+                </mfrac>
+              </math>,
+              where <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> = the time of contact between<br>
+              A and B, and <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>m</mi><mi>B</mi></msub></math> = the mass of ball B.
+            </p>
+
+            <p>
+              Because the two forces are equal and opposite to each other,
+              <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML">
+                <msub><mi>F</mi><mn>2</mn></msub>
+                <mo>=</mo>
+                <mo>-</mo>
+                <msub><mi>F</mi><mn>1</mn></msub>
+              </math>.
+            </p>
+
+            <p>
+              Therefore,
+              <math class="inline-math tall-math" xmlns="http://www.w3.org/1998/Math/MathML">
+                <mfrac>
+                  <mrow>
+                    <msub><mi>m</mi><mi>B</mi></msub><msub><mi>v</mi><mi>B</mi></msub>
+                    <mo>-</mo>
+                    <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
+                  </mrow>
+                  <mi>t</mi>
+                </mfrac>
+                <mo>=</mo>
+                <mo>-</mo>
+                <mfrac>
+                  <mrow>
+                    <mo>(</mo>
+                    <msub><mi>m</mi><mi>A</mi></msub><msub><mi>v</mi><mi>A</mi></msub>
+                    <mo>-</mo>
+                    <msub><mi>m</mi><mi>A</mi></msub><msub><mi>u</mi><mi>A</mi></msub>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>t</mi>
+                </mfrac>
+              </math>.
+            </p>
+
+            <p>Cancelling <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math> on both sides gives</p>
+
+            <p class="equation">
+              <math class="bold-math" display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                <msub><mi>m</mi><mi>B</mi></msub><msub><mi>v</mi><mi>B</mi></msub>
+                <mo>-</mo>
+                <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
+                <mo>=</mo>
+                <mo>-</mo>
+                <mo>(</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>v</mi><mi>A</mi></msub>
+                <mo>-</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>u</mi><mi>A</mi></msub>
+                <mo>)</mo>
+              </math>
+            </p>
+
+            <p>Rearranging this equation gives</p>
+
+            <p class="equation">
+              <math class="bold-math" display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                <msub><mi>m</mi><mi>B</mi></msub><msub><mi>v</mi><mi>B</mi></msub>
+                <mo>+</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>v</mi><mi>A</mi></msub>
+                <mo>=</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>u</mi><mi>A</mi></msub>
+                <mo>+</mo>
+                <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
+              </math>
+            </p>
+
+            <p>Therefore,</p>
+
+            <p class="bold-equation">the total final momentum = the total initial momentum</p>
+
+            <p>Hence the total momentum is unchanged by this collision, that is, it is conserved.</p>
+
+            <p class="note-label">Note:</p>
+            <p>
+              If the colliding objects stick together as a result of the collision, they
+              have the same final velocity. The above equation with
+              <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi></math>
+              as the final velocity may therefore be written
+            </p>
+
+            <p class="equation note-equation">
+              <math class="bold-math" display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                <mo>(</mo>
+                <msub><mi>m</mi><mi>B</mi></msub>
+                <mo>+</mo>
+                <msub><mi>m</mi><mi>A</mi></msub>
+                <mo>)</mo>
+                <mi>V</mi>
+                <mo>=</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>u</mi><mi>A</mi></msub>
+                <mo>+</mo>
+                <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
+              </math>
+            </p>
+          </section>
+
+          <figure class="figure figure-3a">
+            <img src="assets/textbook/figure-3a-diagram.png" alt="Motion sensor arrangement with trolley A, trolley B, horizontal runway, interface unit and computer.">
+            <figcaption><span class="caption-triangle">&#9650;</span> <strong>Figure 3a</strong> <em>Using a motion sensor</em></figcaption>
+          </figure>
+
+          <figure class="figure figure-3b">
+            <img src="assets/textbook/figure-3b-diagram.png" alt="Light gate arrangement with light source, card, detector, timer and trolley direction.">
+            <figcaption><span class="caption-triangle">&#9650;</span> <strong>Figure 3b</strong> <em>Using light gates</em></figcaption>
+          </figure>
+
+          <section class="testing" aria-label="Testing conservation of momentum">
+            <h1>Testing conservation of momentum <img src="assets/textbook/lab-icon.png" alt=""></h1>
+
+            <p>
+              Figure 3a shows an arrangement that can be used to test
+              <strong>conservation of momentum</strong> using a motion sensor linked to a computer. The mass
+              of each trolley is measured before the test. With trolley B at rest, trolley
+              A is given a push so it moves towards trolley B at constant velocity.
+              The two trolleys stick together on impact. The computer records and
+              displays the velocity of trolley A throughout this time.
+            </p>
+
+            <p>
+              The computer display shows that the velocity of trolley A dropped
+              suddenly when the impact took place. The velocity of trolley A
+              immediately before the collision,
+              <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>u</mi><mi>A</mi></msub></math>,
+              and after the collision,
+              <math class="inline-math" xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi></math>,
+              can be measured. The measurements should show that the total momentum
+              of both trolleys after the collision is equal to the momentum of trolley
+              A before the collision. In other words,
+            </p>
+
+            <p class="equation testing-equation">
+              <math class="bold-math" display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+                <mo>(</mo>
+                <msub><mi>m</mi><mi>B</mi></msub>
+                <mo>+</mo>
+                <msub><mi>m</mi><mi>A</mi></msub>
+                <mo>)</mo>
+                <mi>V</mi>
+                <mo>=</mo>
+                <msub><mi>m</mi><mi>A</mi></msub><msub><mi>u</mi><mi>A</mi></msub>
+              </math>
+            </p>
+          </section>
+
+        </article>
+      </section>
+
+      <section id="homework" class="homework-section" aria-label="Homework 2 Momentum">
+        <div class="page-shell">
+          <header class="page-header">
+            <div>
+              <p class="eyebrow">Interactive Homework</p>
+              <h1>Homework 2: Momentum</h1>
+            </div>
+            <div class="score-card" aria-live="polite">
+              <span>Score</span>
+              <strong id="score">0 / 4</strong>
+            </div>
+          </header>
+
+          <section id="student-start-panel" class="student-start-panel">
+            <div class="review-header">
+              <div>
+                <p class="eyebrow">Student identity</p>
+                <h2>Choose Your Name</h2>
+              </div>
+            </div>
+
+            <form id="student-start-form" class="student-start-form">
+              <label>
+                <span>Class</span>
+                <select id="class-select" required></select>
+              </label>
+              <label>
+                <span>Student Name</span>
+                <select id="student-select" required></select>
+              </label>
+              <button id="start-quiz-button" type="submit">Start Quiz</button>
+            </form>
+
+            <div id="student-start-status" class="submission-status" aria-live="polite"></div>
+          </section>
+
+          <section id="quiz-panel" class="quiz-panel homework-list-panel" aria-labelledby="homework-list-title" hidden>
+            <div class="quiz-meta">
+              <span id="question-position">All questions</span>
+              <span id="question-type">Continuous homework</span>
+              <span id="student-identity-label"></span>
+            </div>
+
+            <h2 id="homework-list-title">Homework questions</h2>
+            <div id="all-questions-list" class="all-questions-list"></div>
+          </section>
+
+          <section id="review-section" class="review-panel" hidden>
+            <div class="review-header">
+              <div>
+                <p class="eyebrow">Review</p>
+                <h2>Review Mistakes</h2>
+              </div>
+              <p id="final-score"></p>
+            </div>
+            <div id="mistakes-list" class="mistakes-list"></div>
+          </section>
+
+          <section id="teacher-submission-section" class="teacher-submission-panel" hidden>
+            <div class="review-header">
+              <div>
+                <p class="eyebrow">Teacher record</p>
+                <h2>Submit to Teacher</h2>
+              </div>
+              <p id="submission-score-summary"></p>
+            </div>
+
+            <form id="teacher-submission-form" class="teacher-submission-form">
+              <p id="teacher-submission-identity" class="selected-student-summary"></p>
+              <button id="teacher-submit-button" type="submit">Submit to Teacher</button>
+            </form>
+
+            <div id="teacher-submission-status" class="submission-status" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="figure2.js"></script>
+    <script src="homework2.js"></script>
+  </body>
+</html>
