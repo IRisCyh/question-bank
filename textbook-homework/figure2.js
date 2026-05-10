@@ -8,6 +8,7 @@ if (figure2Root) {
     uA: figure2Root.querySelector("#figure2-uA"),
     uB: figure2Root.querySelector("#figure2-uB")
   };
+  const modeControls = [...figure2Root.querySelectorAll('input[name="figure2-collision-type"]')];
   const outputs = {
     mA: figure2Root.querySelector("#figure2-mA-value"),
     mB: figure2Root.querySelector("#figure2-mB-value"),
@@ -16,6 +17,18 @@ if (figure2Root) {
     vA: figure2Root.querySelector("#figure2-vA-value"),
     vB: figure2Root.querySelector("#figure2-vB-value"),
     status: figure2Root.querySelector("#figure2-status")
+  };
+  const substitutionPanel = document.querySelector("#figure2-substitution");
+  const substitution = {
+    mA: document.querySelector("#sub-mA"),
+    mB: document.querySelector("#sub-mB"),
+    mARhs: document.querySelector("#sub-mA-rhs"),
+    mBRhs: document.querySelector("#sub-mB-rhs"),
+    uA: document.querySelector("#sub-uA"),
+    uB: document.querySelector("#sub-uB"),
+    totalMass: document.querySelector("#sub-total-mass"),
+    totalMomentum: document.querySelector("#sub-total-momentum"),
+    finalV: document.querySelector("#sub-final-v")
   };
   const nodes = {
     uAArrow: figure2Root.querySelector("#figure2-uA-arrow"),
@@ -59,11 +72,15 @@ if (figure2Root) {
     const mB = Number(controls.mB.value);
     const uA = Number(controls.uA.value);
     const uB = Number(controls.uB.value);
+    const collisionType = modeControls.find((control) => control.checked)?.value || "inelastic";
     const totalMass = mA + mB;
-    const vA = ((mA - mB) * uA + 2 * mB * uB) / totalMass;
-    const vB = (2 * mA * uA + (mB - mA) * uB) / totalMass;
+    const sharedV = (mA * uA + mB * uB) / totalMass;
+    const elasticVA = ((mA - mB) * uA + 2 * mB * uB) / totalMass;
+    const elasticVB = (2 * mA * uA + (mB - mA) * uB) / totalMass;
+    const vA = collisionType === "inelastic" ? sharedV : elasticVA;
+    const vB = collisionType === "inelastic" ? sharedV : elasticVB;
     const collides = uA > uB;
-    return { mA, mB, uA, uB, vA, vB, collides };
+    return { mA, mB, uA, uB, vA, vB, sharedV, collisionType, collides };
   }
 
   function setTransform(node, x, y) {
@@ -142,6 +159,14 @@ if (figure2Root) {
     }
 
     const contact = collisionPositions(state);
+    if (state.collisionType === "inelastic") {
+      const maxSpeed = Math.max(Math.abs(state.sharedV), 1);
+      const drift = (state.sharedV / maxSpeed) * 86;
+      const a = clamp(contact.a + drift, 42, 388);
+      const b = clamp(a + 32, 74, 424);
+      return { a, b, contactA: contact.a, contactB: contact.b };
+    }
+
     const maxSpeed = Math.max(Math.abs(state.vA), Math.abs(state.vB), 1);
     let a = clamp(contact.a + (state.vA / maxSpeed) * 72, 42, 388);
     let b = clamp(contact.b + (state.vB / maxSpeed) * 92, 74, 424);
@@ -181,6 +206,7 @@ if (figure2Root) {
     outputs.vA.textContent = `${state.vA.toFixed(2)} m/s`;
     outputs.vB.textContent = `${state.vB.toFixed(2)} m/s`;
     outputs.status.textContent = state.collides ? "click diagram to play" : "no collision: A cannot catch B";
+    updateSubstitution(state);
 
     setArrow(nodes.uAArrow, points.beforeA.x + 1, 22, state.uA);
     setArrow(nodes.uBArrow, points.beforeB.x, 22, state.uB);
@@ -189,6 +215,28 @@ if (figure2Root) {
     setDuringForces(after.contactA, after.contactB, false);
     setAfterRow(state, after.contactA, after.contactB);
     setAfterVelocityVisibility(false);
+  }
+
+  function updateSubstitution(state) {
+    if (!substitutionPanel || !substitution.mA) return;
+
+    const showSubstitution = state.collisionType === "inelastic" && Math.abs(state.uB) < 0.001;
+    substitutionPanel.hidden = !showSubstitution;
+    if (!showSubstitution) return;
+
+    const totalMass = state.mA + state.mB;
+    const totalMomentum = state.mA * state.uA + state.mB * state.uB;
+    const finalVelocity = totalMass ? totalMomentum / totalMass : 0;
+
+    substitution.mA.textContent = state.mA.toFixed(1);
+    substitution.mB.textContent = state.mB.toFixed(1);
+    substitution.mARhs.textContent = state.mA.toFixed(1);
+    substitution.mBRhs.textContent = state.mB.toFixed(1);
+    substitution.uA.textContent = state.uA.toFixed(1);
+    substitution.uB.textContent = state.uB.toFixed(1);
+    substitution.totalMass.textContent = totalMass.toFixed(1);
+    substitution.totalMomentum.textContent = totalMomentum.toFixed(1);
+    substitution.finalV.textContent = `${finalVelocity.toFixed(2)} m/s`;
   }
 
   function stopAnimation({ completed = false, afterA = null, afterB = null } = {}) {
@@ -358,6 +406,12 @@ if (figure2Root) {
 
   Object.values(controls).forEach((control) => {
     control.addEventListener("input", () => {
+      stopAnimation();
+      updateFigure();
+    });
+  });
+  modeControls.forEach((control) => {
+    control.addEventListener("change", () => {
       stopAnimation();
       updateFigure();
     });

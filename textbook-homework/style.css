@@ -13,6 +13,9 @@
   --incorrect: #9b2c2c;
   --warn-bg: #fff7e6;
   --shade: #f4f5f2;
+  --mass-color: #b08200;
+  --velocity-color: #d7232d;
+  --final-color: #d7232d;
 }
 
 *,
@@ -84,7 +87,7 @@ textarea {
 .textbook-page {
   position: relative;
   width: min(var(--page-width), 100%);
-  height: 1388px;
+  height: 1452px;
   margin: 0 auto;
   overflow: hidden;
   background: #fff;
@@ -149,26 +152,76 @@ textarea {
   margin-top: 12px;
 }
 
+.figure-2 .figure2-mode-controls {
+  position: absolute;
+  left: -424px;
+  top: 0;
+  display: grid;
+  gap: 10px;
+  width: 188px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.figure-2 .figure2-mode-controls label {
+  display: block;
+}
+
+.figure-2 .figure2-mode-controls input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.figure-2 .figure2-mode-controls span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border: 2px solid #0f2a39;
+  border-radius: 10px;
+  background: #fff;
+  color: #1b1b1b;
+  padding: 8px 12px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.figure-2 .figure2-mode-controls input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.figure-2 .figure2-mode-controls input:checked + span {
+  border-color: #0f2a39;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
 .figure-2 .figure2-controls {
   position: absolute;
-  left: -228px;
+  left: -220px;
   top: 0;
-  width: 210px;
-  padding: 10px 12px 11px;
+  width: 212px;
+  padding: 12px 12px 13px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.94);
   color: #334044;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 1.15;
+  font-size: 15px;
+  line-height: 1.18;
 }
 
 .figure-2 .figure2-controls label {
   display: grid;
-  grid-template-columns: 30px 1fr 58px;
+  grid-template-columns: 30px 1fr 54px;
   align-items: center;
   gap: 8px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 .figure-2 .figure2-controls span {
@@ -182,12 +235,12 @@ textarea {
 
 .figure-2 .figure2-controls input[type="range"] {
   width: 100%;
+  height: 20px;
   accent-color: var(--accent);
 }
 
 .figure-2 .figure2-controls output {
-  color: #4d5a5d;
-  font-size: 12px;
+  font-size: 13px;
   text-align: right;
   white-space: nowrap;
 }
@@ -195,25 +248,52 @@ textarea {
 .figure-2 .figure2-results {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 8px;
-  padding-top: 8px;
+  gap: 12px;
+  margin-top: 11px;
+  padding-top: 11px;
   border-top: 1px solid #dfe3df;
 }
 
 .figure-2 .figure2-results strong {
   display: block;
-  margin-top: 3px;
-  color: #222;
-  font-size: 12px;
+  margin-top: 4px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
 }
 
+.figure-2 .param-value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 62px;
+  min-height: 24px;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.figure-2 output.param-value {
+  justify-self: end;
+}
+
+.figure-2 .mass-value {
+  color: var(--mass-color);
+}
+
+.figure-2 .velocity-value {
+  color: var(--velocity-color);
+}
+
+.figure-2 .final-value {
+  color: var(--final-color);
+}
+
 .figure-2 .figure2-status {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   color: #647074;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -291,6 +371,15 @@ textarea {
   marker-end: url(#figure2-arrow);
 }
 
+.figure-2 .figure2-final-velocity {
+  stroke: var(--final-color);
+  marker-end: url(#figure2-final-arrow);
+}
+
+.figure-2 .figure2-final-symbol {
+  fill: #667074;
+}
+
 .figure-2 .figure2-force-arrow {
   stroke: #2e6eb5;
   marker-end: url(#figure2-force-arrow);
@@ -306,6 +395,10 @@ textarea {
 
 .figure-2 #figure2-arrow path {
   fill: #d7232d;
+}
+
+.figure-2 #figure2-final-arrow path {
+  fill: var(--final-color);
 }
 
 .figure-2 .figure2-motion-layer {
@@ -392,9 +485,72 @@ textarea {
   margin-top: 8px;
 }
 
+.figure2-substitution {
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+  margin: 7px 0 17px;
+  color: #111;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.figure2-substitution[hidden] {
+  display: none;
+}
+
+.substitution-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.compact-line {
+  font-size: 18px;
+}
+
+.sub-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: auto;
+  padding: 0 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mass-chip {
+  color: var(--mass-color);
+}
+
+.velocity-chip {
+  color: var(--velocity-color);
+}
+
+.final-chip {
+  color: var(--final-color);
+}
+
+.sub-symbol,
+.sub-times {
+  font-style: italic;
+}
+
+.figure2-substitution strong {
+  color: var(--final-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
 .textbook-page .testing {
   left: 389px;
-  top: 971px;
+  top: 982px;
   width: 635px;
   line-height: 1.16;
 }
@@ -877,23 +1033,24 @@ sub {
   margin-top: 14px;
   border-top: 1px solid var(--line);
   padding-top: 14px;
+  line-height: 1.42;
 }
 
 .subpart-mark-scheme h4 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.98rem;
 }
 
 .mark-point-list {
   display: grid;
-  gap: 10px;
+  gap: 14px;
   margin: 0;
   padding-left: 24px;
 }
 
 .mark-point {
-  padding-left: 4px;
+  padding-left: 5px;
 }
 
 .mark-point-label {
@@ -901,15 +1058,17 @@ sub {
   grid-template-columns: 20px 1fr;
   gap: 10px;
   align-items: start;
+  line-height: 1.38;
   cursor: pointer;
 }
 
 .mark-point-label input {
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
-.mark-scheme-score {
-  margin-top: 12px;
+.subpart-mark-scheme .mark-scheme-score {
+  margin-top: 16px;
+  line-height: 1.35;
 }
 
 .feedback {

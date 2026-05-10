@@ -18,30 +18,41 @@
           <header class="section-tab">9.3 Conservation of momentum</header>
 
           <figure class="figure figure-2">
+            <div class="figure2-mode-controls" aria-label="Collision type">
+              <label>
+                <input type="radio" name="figure2-collision-type" value="elastic">
+                <span>Elastic Collision</span>
+              </label>
+              <label>
+                <input type="radio" name="figure2-collision-type" value="inelastic" checked>
+                <span>Inelastic Collision</span>
+              </label>
+            </div>
+
             <div class="figure2-controls" aria-label="Figure 2 collision variables">
               <label>
                 <span>m<sub>A</sub></span>
                 <input id="figure2-mA" type="range" min="0.5" max="5" step="0.1" value="1">
-                <output id="figure2-mA-value">1.0 kg</output>
+                <output id="figure2-mA-value" class="param-value mass-value">1.0 kg</output>
               </label>
               <label>
                 <span>m<sub>B</sub></span>
                 <input id="figure2-mB" type="range" min="0.5" max="5" step="0.1" value="1">
-                <output id="figure2-mB-value">1.0 kg</output>
+                <output id="figure2-mB-value" class="param-value mass-value">1.0 kg</output>
               </label>
               <label>
                 <span>u<sub>A</sub></span>
                 <input id="figure2-uA" type="range" min="0" max="3" step="0.1" value="1">
-                <output id="figure2-uA-value">1.0 m/s</output>
+                <output id="figure2-uA-value" class="param-value velocity-value">1.0 m/s</output>
               </label>
               <label>
                 <span>u<sub>B</sub></span>
                 <input id="figure2-uB" type="range" min="0" max="3" step="0.1" value="0">
-                <output id="figure2-uB-value">0.0 m/s</output>
+                <output id="figure2-uB-value" class="param-value velocity-value">0.0 m/s</output>
               </label>
               <div class="figure2-results" aria-live="polite">
-                <span>v<sub>A</sub> <strong id="figure2-vA-value">0.00 m/s</strong></span>
-                <span>v<sub>B</sub> <strong id="figure2-vB-value">1.00 m/s</strong></span>
+                <span>v<sub>A</sub> <strong id="figure2-vA-value" class="param-value final-value">0.50 m/s</strong></span>
+                <span>v<sub>B</sub> <strong id="figure2-vB-value" class="param-value final-value">0.50 m/s</strong></span>
               </div>
               <p id="figure2-status" class="figure2-status">click diagram to play</p>
             </div>
@@ -49,6 +60,9 @@
             <svg class="figure2-svg" viewBox="0 0 447 226" role="button" tabindex="0" aria-label="Play Figure 2 collision animation">
               <defs>
                 <marker id="figure2-arrow" markerWidth="6" markerHeight="5" refX="5.4" refY="2.5" orient="auto">
+                  <path d="M0,0 L6,2.5 L0,5 Z"></path>
+                </marker>
+                <marker id="figure2-final-arrow" markerWidth="6" markerHeight="5" refX="5.4" refY="2.5" orient="auto">
                   <path d="M0,0 L6,2.5 L0,5 Z"></path>
                 </marker>
                 <marker id="figure2-force-arrow" markerWidth="6" markerHeight="5" refX="5.4" refY="2.5" orient="auto">
@@ -107,10 +121,10 @@
                   <circle r="16"></circle>
                   <text y="5">B</text>
                 </g>
-                <text id="figure2-vA-label" class="figure2-symbol" x="277" y="171">v<tspan class="figure2-sub">A</tspan></text>
-                <line id="figure2-vA-arrow" class="figure2-velocity" x1="296" y1="172" x2="329" y2="172"></line>
-                <text id="figure2-vB-label" class="figure2-symbol" x="389" y="171">v<tspan class="figure2-sub">B</tspan></text>
-                <line id="figure2-vB-arrow" class="figure2-velocity" x1="408" y1="172" x2="442" y2="172"></line>
+                <text id="figure2-vA-label" class="figure2-symbol figure2-final-symbol" x="277" y="171">v<tspan class="figure2-sub">A</tspan></text>
+                <line id="figure2-vA-arrow" class="figure2-velocity figure2-final-velocity" x1="296" y1="172" x2="329" y2="172"></line>
+                <text id="figure2-vB-label" class="figure2-symbol figure2-final-symbol" x="389" y="171">v<tspan class="figure2-sub">B</tspan></text>
+                <line id="figure2-vB-arrow" class="figure2-velocity figure2-final-velocity" x1="408" y1="172" x2="442" y2="172"></line>
               </g>
 
               <g class="figure2-motion-layer" aria-hidden="true">
@@ -241,6 +255,35 @@
                 <msub><mi>m</mi><mi>B</mi></msub><msub><mi>u</mi><mi>B</mi></msub>
               </math>
             </p>
+
+            <div id="figure2-substitution" class="figure2-substitution" aria-live="polite" hidden>
+              <div class="substitution-line">
+                <span>(</span>
+                <span id="sub-mB" class="sub-chip mass-chip">1.0</span>
+                <span>+</span>
+                <span id="sub-mA" class="sub-chip mass-chip">1.0</span>
+                <span>)</span>
+                <span class="sub-symbol">V</span>
+                <span>=</span>
+                <span id="sub-mA-rhs" class="sub-chip mass-chip">1.0</span>
+                <span class="sub-times">&times;</span>
+                <span id="sub-uA" class="sub-chip velocity-chip">1.0</span>
+                <span>+</span>
+                <span id="sub-mB-rhs" class="sub-chip mass-chip">1.0</span>
+                <span class="sub-times">&times;</span>
+                <span id="sub-uB" class="sub-chip velocity-chip">0.0</span>
+              </div>
+              <div class="substitution-line compact-line">
+                <span id="sub-total-mass" class="sub-chip mass-chip">2.0</span>
+                <span class="sub-symbol">V</span>
+                <span>=</span>
+                <span id="sub-total-momentum" class="sub-chip final-chip">1.0</span>
+                <span>,</span>
+                <span class="sub-symbol">V</span>
+                <span>=</span>
+                <strong id="sub-final-v" class="sub-chip final-chip">0.50 m/s</strong>
+              </div>
+            </div>
           </section>
 
           <figure class="figure figure-3a">
