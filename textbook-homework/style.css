@@ -1259,6 +1259,7 @@ button:disabled {
     height: 1452px;
     overflow: hidden;
     margin: 0;
+    zoom: calc(100vw / var(--page-width));
   }
 
   .page-shell {
