@@ -68,7 +68,7 @@ const els = {
 
 async function loadQuestions() {
   try {
-    const response = await fetch("questions.json");
+    const response = await fetch("questions.json?v=20260510-encoding-fix");
     if (!response.ok) {
       throw new Error(`Could not load questions.json (${response.status})`);
     }
