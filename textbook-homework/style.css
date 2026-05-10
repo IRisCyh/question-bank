@@ -1263,6 +1263,10 @@ button:disabled {
     transform-origin: top left;
   }
 
+  .textbook-page.is-refreshing-layout {
+    transform: translateZ(0) scale(calc(100vw / var(--page-width)));
+  }
+
   .page-shell {
     width: min(100%, 1105px);
     padding: 72px 18px 36px;

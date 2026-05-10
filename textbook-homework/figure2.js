@@ -66,6 +66,24 @@ if (figure2Root) {
 
   let currentState = null;
   let animationFrame = null;
+  let repaintFrame = null;
+
+  function refreshMobileTextbookLayer() {
+    const page = document.querySelector(".textbook-page");
+    if (!page || window.matchMedia("(min-width: 681px)").matches) return;
+
+    if (repaintFrame) {
+      window.cancelAnimationFrame(repaintFrame);
+    }
+
+    page.classList.add("is-refreshing-layout");
+    repaintFrame = window.requestAnimationFrame(() => {
+      repaintFrame = window.requestAnimationFrame(() => {
+        page.classList.remove("is-refreshing-layout");
+        repaintFrame = null;
+      });
+    });
+  }
 
   function values() {
     const mA = Number(controls.mA.value);
@@ -408,12 +426,14 @@ if (figure2Root) {
     control.addEventListener("input", () => {
       stopAnimation();
       updateFigure();
+      refreshMobileTextbookLayer();
     });
   });
   modeControls.forEach((control) => {
     control.addEventListener("change", () => {
       stopAnimation();
       updateFigure();
+      refreshMobileTextbookLayer();
     });
   });
 
