@@ -67,33 +67,6 @@ if (figure2Root) {
   let currentState = null;
   let animationFrame = null;
   let repaintFrame = null;
-  let heightFrame = null;
-
-  function syncMobileTextbookHeight() {
-    const section = document.querySelector(".textbook-section");
-    const testing = document.querySelector(".textbook-page .testing");
-    if (!section || !testing) return;
-
-    if (window.matchMedia("(min-width: 681px)").matches) {
-      section.style.height = "";
-      return;
-    }
-
-    const sectionTop = section.getBoundingClientRect().top;
-    const testingBottom = testing.getBoundingClientRect().bottom;
-    section.style.height = `${Math.ceil(testingBottom - sectionTop + 18)}px`;
-  }
-
-  function queueMobileTextbookHeightSync() {
-    if (heightFrame) {
-      window.cancelAnimationFrame(heightFrame);
-    }
-
-    heightFrame = window.requestAnimationFrame(() => {
-      syncMobileTextbookHeight();
-      heightFrame = null;
-    });
-  }
 
   function refreshMobileTextbookLayer() {
     const page = document.querySelector(".textbook-page");
@@ -454,7 +427,6 @@ if (figure2Root) {
       stopAnimation();
       updateFigure();
       refreshMobileTextbookLayer();
-      queueMobileTextbookHeightSync();
     });
   });
   modeControls.forEach((control) => {
@@ -462,12 +434,8 @@ if (figure2Root) {
       stopAnimation();
       updateFigure();
       refreshMobileTextbookLayer();
-      queueMobileTextbookHeightSync();
     });
   });
-
-  window.addEventListener("resize", queueMobileTextbookHeightSync);
-  window.addEventListener("load", queueMobileTextbookHeightSync);
 
   svg.addEventListener("click", playAnimation);
   svg.addEventListener("keydown", (event) => {
@@ -478,5 +446,4 @@ if (figure2Root) {
   });
 
   updateFigure();
-  queueMobileTextbookHeightSync();
 }

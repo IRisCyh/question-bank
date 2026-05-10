@@ -1246,8 +1246,8 @@ button:disabled {
   }
 
   .textbook-section {
-    height: calc(143vw + 20px);
-    max-height: 1600px;
+    height: calc(138vw + 20px);
+    max-height: 1545px;
     padding-bottom: 20px;
     overflow: hidden;
     touch-action: pan-x pan-y pinch-zoom;
@@ -1256,7 +1256,7 @@ button:disabled {
   .textbook-page {
     width: var(--page-width);
     min-width: var(--page-width);
-    height: 1580px;
+    height: 1545px;
     overflow: hidden;
     margin: 0;
     transform: scale(calc(100vw / var(--page-width)));
