@@ -1263,10 +1263,6 @@ button:disabled {
     transform-origin: top left;
   }
 
-  .textbook-page.is-refreshing-layout {
-    transform: translateZ(0) scale(calc(100vw / var(--page-width)));
-  }
-
   .textbook-page .testing {
     top: 1085px;
   }
