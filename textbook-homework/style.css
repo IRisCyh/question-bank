@@ -1246,10 +1246,10 @@ button:disabled {
   }
 
   .textbook-section {
+    height: calc(131.4vw + 20px);
+    max-height: 1472px;
     padding-bottom: 20px;
-    overflow-x: auto;
-    overflow-y: visible;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     touch-action: pan-x pan-y pinch-zoom;
   }
 
@@ -1259,7 +1259,8 @@ button:disabled {
     height: 1452px;
     overflow: hidden;
     margin: 0;
-    zoom: calc(100vw / var(--page-width));
+    transform: scale(calc(100vw / var(--page-width)));
+    transform-origin: top left;
   }
 
   .page-shell {
