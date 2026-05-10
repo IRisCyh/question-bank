@@ -1246,152 +1246,17 @@ button:disabled {
 
   .textbook-section {
     padding-bottom: 20px;
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
   }
 
   .textbook-page {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-
-  .textbook-page .section-tab {
-    position: static;
-    width: 100%;
-    height: auto;
-    min-height: 64px;
-    padding: 18px 22px;
-    border-bottom-right-radius: 20px;
-    font-size: 22px;
-    line-height: 1.15;
-  }
-
-  .textbook-page .figure,
-  .textbook-page .derivation,
-  .textbook-page .testing {
-    position: static;
-    left: auto;
-    top: auto;
-    width: auto;
-  }
-
-  .textbook-page .figure {
-    margin: 26px 18px;
-  }
-
-  .textbook-page .figure img {
-    width: 100%;
-    height: auto;
-  }
-
-  .textbook-page .figure figcaption {
-    white-space: normal;
-  }
-
-  .figure-2 {
-    display: grid;
-    gap: 14px;
-  }
-
-  .figure-2 .figure2-mode-controls,
-  .figure-2 .figure2-controls {
-    position: static;
-    left: auto;
-    top: auto;
-    width: 100%;
-  }
-
-  .figure-2 .figure2-mode-controls {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .figure-2 .figure2-mode-controls span {
-    min-height: 44px;
-    padding: 8px;
-    font-size: 15px;
-  }
-
-  .figure-2 .figure2-controls {
-    padding: 14px;
-  }
-
-  .figure-2 .figure2-controls label {
-    grid-template-columns: 34px 1fr 68px;
-  }
-
-  .figure-2 .figure2-controls output,
-  .figure-2 .figure2-results strong {
-    font-size: 13px;
-  }
-
-  .figure-2 .figure2-svg {
-    width: 100%;
-    height: auto;
-  }
-
-  .textbook-page .derivation,
-  .textbook-page .testing {
-    margin: 22px 18px;
-    font-size: 18px;
-    line-height: 1.28;
-  }
-
-  .textbook-page .derivation p,
-  .textbook-page .testing p {
-    margin-bottom: 14px;
-  }
-
-  .textbook-page .equation {
-    overflow-x: auto;
-    padding-bottom: 2px;
-    font-size: 18px;
-  }
-
-  .textbook-page .bold-equation {
-    margin: 6px 0 16px;
-    font-size: 20px;
-    text-align: center;
-    white-space: normal;
-  }
-
-  .textbook-page .note-label {
-    font-size: 22px;
-  }
-
-  .figure2-substitution {
-    justify-content: start;
-    overflow-x: auto;
-    margin-bottom: 18px;
-    font-size: 16px;
-  }
-
-  .substitution-line {
-    justify-content: flex-start;
-    gap: 5px;
-    min-width: max-content;
-  }
-
-  .compact-line,
-  .sub-chip,
-  .figure2-substitution strong {
-    font-size: 16px;
-  }
-
-  .textbook-page .testing h1 {
-    align-items: flex-start;
-    margin-bottom: 14px;
-    font-size: 24px;
-    line-height: 1.12;
-  }
-
-  .textbook-page .testing h1 img {
-    width: 25px;
-    height: 24px;
-  }
-
-  .textbook-page .testing-equation {
-    font-size: 19px;
+    width: var(--page-width);
+    min-width: var(--page-width);
+    height: 1452px;
+    overflow: hidden;
+    margin: 0;
   }
 
   .page-shell {
