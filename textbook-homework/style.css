@@ -34,6 +34,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: "Times New Roman", Times, serif;
+  touch-action: pan-x pan-y pinch-zoom;
 }
 
 button,
@@ -1249,6 +1250,7 @@ button:disabled {
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y pinch-zoom;
   }
 
   .textbook-page {
