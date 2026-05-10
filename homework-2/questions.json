@@ -6,7 +6,7 @@
                       {
                           "id":  "Q1",
                           "type":  "multiple-choice",
-                          "questionText":  "Glider X of mass 400 g travels at 1.8 m sâˆ’1 to the right on a horizontal, frictionless track.\nGlider Y of mass 300 g travels towards X at 0.7 m sâˆ’1.\n[diagram needed]\nX and Y collide.\nImmediately after the collision, Y travels to the right at a speed of 0.9 m sâˆ’1.\nWhat are the speed and direction of movement of X immediately after the collision?",
+                          "questionText":  "Glider X of mass 400 g travels at 1.8 m s−1 to the right on a horizontal, frictionless track.\nGlider Y of mass 300 g travels towards X at 0.7 m s−1.\n[diagram needed]\nX and Y collide.\nImmediately after the collision, Y travels to the right at a speed of 0.9 m s−1.\nWhat are the speed and direction of movement of X immediately after the collision?",
                           "media":  [
                                         {
                                             "kind":  "diagram",
@@ -15,10 +15,10 @@
                                         }
                                     ],
                           "options":  {
-                                          "A":  "0.6 m sâˆ’1 to the left",
-                                          "B":  "0.6 m sâˆ’1 to the right",
-                                          "C":  "1.7 m sâˆ’1 to the left",
-                                          "D":  "1.7 m sâˆ’1 to the right"
+                                          "A":  "0.6 m s−1 to the left",
+                                          "B":  "0.6 m s−1 to the right",
+                                          "C":  "1.7 m s−1 to the left",
+                                          "D":  "1.7 m s−1 to the right"
                                       },
                           "correctAnswer":  "B",
                           "marks":  1,
@@ -31,7 +31,7 @@
                       {
                           "id":  "Q2",
                           "type":  "multiple-choice",
-                          "questionText":  "A railway truck of mass 8000 kg travels along a level track at a velocity of 2.5 msâ€“1 and collides with a stationary truck of mass 12000 kg. The two trucks move together at the same velocity after the collision.\n[diagram needed]\nWhat is the change in momentum of the 8000 kg truck due to the impact?",
+                          "questionText":  "A railway truck of mass 8000 kg travels along a level track at a velocity of 2.5 ms–1 and collides with a stationary truck of mass 12000 kg. The two trucks move together at the same velocity after the collision.\n[diagram needed]\nWhat is the change in momentum of the 8000 kg truck due to the impact?",
                           "media":  [
                                         {
                                             "kind":  "diagram",
@@ -75,12 +75,12 @@
                       {
                           "id":  "Q4",
                           "type":  "multiple-choice",
-                          "questionText":  "A railway truck of mass 2000 kg travelling horizontally at 1.5 m sâ€“1 collides with a stationary truck of mass 3000 kg.\nAfter the collision they move together.\nWhich row is correct?",
+                          "questionText":  "A railway truck of mass 2000 kg travelling horizontally at 1.5 m s–1 collides with a stationary truck of mass 3000 kg.\nAfter the collision they move together.\nWhich row is correct?",
                           "options":  {
-                                          "A":  "Speed of the trucks immediately after collision: 0.6 m sâ€“1; effect of collision on total kinetic energy: no change",
-                                          "B":  "Speed of the trucks immediately after collision: 0.6 m sâ€“1; effect of collision on total kinetic energy: decrease",
-                                          "C":  "Speed of the trucks immediately after collision: 1.0 m sâ€“1; effect of collision on total kinetic energy: no change",
-                                          "D":  "Speed of the trucks immediately after collision: 1.0 m sâ€“1; effect of collision on total kinetic energy: decrease"
+                                          "A":  "Speed of the trucks immediately after collision: 0.6 m s–1; effect of collision on total kinetic energy: no change",
+                                          "B":  "Speed of the trucks immediately after collision: 0.6 m s–1; effect of collision on total kinetic energy: decrease",
+                                          "C":  "Speed of the trucks immediately after collision: 1.0 m s–1; effect of collision on total kinetic energy: no change",
+                                          "D":  "Speed of the trucks immediately after collision: 1.0 m s–1; effect of collision on total kinetic energy: decrease"
                                       },
                           "correctAnswer":  "B",
                           "marks":  1,
@@ -94,7 +94,7 @@
                       {
                           "id":  "Q10",
                           "type":  "long-answer",
-                          "fullQuestionText":  "The diagram shows two railway trucks A and B travelling towards each other on the same railway line which is straight and horizontal.\n[diagram needed]\nThe trucks are involved in an inelastic collision. They join when they collide and then move together.\nThe trucks move a distance of 15 m before coming to rest.\nTruck A has a total mass of 16 000 kg and truck B has a total mass of 12 000 kg\nJust before the collision, truck A was moving at a speed of 2.8 m sâ€“1 and truck B was moving at a speed of 3.1 m sâ€“1\n(a) State the quantity that is not conserved in an inelastic collision.\n(b) Show that the speed of the joined trucks immediately after the collision is about 0.3 m sâ€“1\n(c) Calculate the impulse that acts on each truck during the collision. Give an appropriate unit for your answer.\n(d) Explain, without doing a calculation, how the motion of the trucks immediately after the collision would be different for a collision that is perfectly elastic.",
+                          "fullQuestionText":  "The diagram shows two railway trucks A and B travelling towards each other on the same railway line which is straight and horizontal.\n[diagram needed]\nThe trucks are involved in an inelastic collision. They join when they collide and then move together.\nThe trucks move a distance of 15 m before coming to rest.\nTruck A has a total mass of 16 000 kg and truck B has a total mass of 12 000 kg\nJust before the collision, truck A was moving at a speed of 2.8 m s–1 and truck B was moving at a speed of 3.1 m s–1\n(a) State the quantity that is not conserved in an inelastic collision.\n(b) Show that the speed of the joined trucks immediately after the collision is about 0.3 m s–1\n(c) Calculate the impulse that acts on each truck during the collision. Give an appropriate unit for your answer.\n(d) Explain, without doing a calculation, how the motion of the trucks immediately after the collision would be different for a collision that is perfectly elastic.",
                           "media":  [
                                         {
                                             "kind":  "diagram",
@@ -124,12 +124,12 @@
                                            },
                                            {
                                                "id":  "Q10(b)",
-                                               "questionText":  "Show that the speed of the joined trucks immediately after the collision is about 0.3 m sâ€“1.",
+                                               "questionText":  "Show that the speed of the joined trucks immediately after the collision is about 0.3 m s–1.",
                                                "marks":  3,
                                                "markSchemePoints":  [
                                                                         "Attempt to apply conservation of momentum.",
                                                                         "16 000 x 2.8 - 12 000 x 3.1 = 28 000 v; substitution must be seen.",
-                                                                        "v = 0.27(1) m sâ€“1. Correct equation, with signs watched, gets the first and second marks."
+                                                                        "v = 0.27(1) m s–1. Correct equation, with signs watched, gets the first and second marks."
                                                                     ],
                                                "topicTags":  [
                                                                  "conservation of momentum",
@@ -141,8 +141,8 @@
                                                "questionText":  "Calculate the impulse that acts on each truck during the collision. Give an appropriate unit for your answer.",
                                                "marks":  2,
                                                "markSchemePoints":  [
-                                                                        "Impulse = 16 000(2.8 - 0.271) or 12 000(3.1 + 0.271) = 4.0(5) x 10^4. If 0.3 m sâ€“1 is used, impulse will be 4.0 x 10^4 or 4.08(4.1) x 10^4.",
-                                                                        "Unit: N s or kg m sâ€“1."
+                                                                        "Impulse = 16 000(2.8 - 0.271) or 12 000(3.1 + 0.271) = 4.0(5) x 10^4. If 0.3 m s–1 is used, impulse will be 4.0 x 10^4 or 4.08(4.1) x 10^4.",
+                                                                        "Unit: N s or kg m s–1."
                                                                     ],
                                                "topicTags":  [
                                                                  "impulse",
@@ -166,3 +166,4 @@
                       }
                   ]
 }
+
