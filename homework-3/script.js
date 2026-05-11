@@ -697,9 +697,10 @@ function buildTeacherSubmissionPayload() {
     id: question.id,
     selectedAnswer: state.answers[question.id] || "",
     correctAnswer: question.correctAnswer,
-    isCorrect: state.answers[question.id] === question.correctAnswer,
+    isSubmitted: Boolean(state.submitted[question.id]),
+    isCorrect: Boolean(state.submitted[question.id]) && state.answers[question.id] === question.correctAnswer,
     marks: question.marks || 0,
-    awardedMarks: state.answers[question.id] === question.correctAnswer ? question.marks || 0 : 0
+    awardedMarks: Boolean(state.submitted[question.id]) && state.answers[question.id] === question.correctAnswer ? question.marks || 0 : 0
   }));
 
   const longAnswerSelfAssessment = getStructuredQuestions().map(question => ({
@@ -744,12 +745,6 @@ async function submitToTeacher(event) {
   const payload = buildTeacherSubmissionPayload();
   if (!payload.studentName || !payload.className) {
     state.submissionStatus = "Choose your class and name before submitting.";
-    renderTeacherSubmission();
-    return;
-  }
-
-  if (!areAllMultipleChoiceSubmitted()) {
-    state.submissionStatus = "Please submit all multiple-choice questions before sending your result to the teacher.";
     renderTeacherSubmission();
     return;
   }
