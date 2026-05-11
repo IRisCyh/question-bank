@@ -605,13 +605,14 @@ function getMistakeQuestions() {
 }
 
 function getTotalScoreSummary() {
-  const q10 = state.questions.find(question => question.id === "Q10" && question.type !== "multiple-choice");
-  const q11 = state.questions.find(question => question.id === "Q11" && question.type !== "multiple-choice");
+  const structuredQuestions = getStructuredQuestions();
+  const q10 = structuredQuestions.find(question => question.id === "Q10");
+  const q11 = structuredQuestions.find(question => question.id === "Q11");
   const q10Score = q10 ? calculateQuestionSelfScore(q10) : 0;
   const q11Score = q11 ? calculateQuestionSelfScore(q11) : 0;
   const mcqMax = getMultipleChoiceMaxScore();
-  const q10Max = getStructuredMaxScore("Q10");
-  const q11Max = getStructuredMaxScore("Q11");
+  const q10Max = q10 ? q10.marks || 0 : 0;
+  const q11Max = q11 ? q11.marks || 0 : 0;
   const totalScore = state.score + q10Score + q11Score;
   const totalMax = mcqMax + q10Max + q11Max;
 
