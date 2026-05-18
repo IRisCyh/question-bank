@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Homework 4: Particle Revision</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Interactive Homework</p>
+          <h1>Homework 4: Particle Revision</h1>
+        </div>
+        <div class="score-card" aria-live="polite">
+          <span>Score</span>
+          <strong id="score">0 / 60</strong>
+        </div>
+      </header>
+
+      <section id="student-start-panel" class="student-start-panel">
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Student identity</p>
+            <h2>Choose Your Name</h2>
+          </div>
+        </div>
+
+        <form id="student-start-form" class="student-start-form">
+          <label>
+            <span>Class</span>
+            <select id="class-select" required></select>
+          </label>
+          <label>
+            <span>Student Name</span>
+            <select id="student-select" required></select>
+          </label>
+          <button id="start-quiz-button" type="submit">Start Quiz</button>
+        </form>
+
+        <div id="student-start-status" class="submission-status" aria-live="polite"></div>
+      </section>
+
+      <section id="quiz-panel" class="quiz-panel" aria-labelledby="questions-list-title" hidden>
+        <div class="quiz-meta">
+          <span id="question-position">60 questions</span>
+          <span id="question-type">Multiple choice</span>
+          <span id="student-identity-label"></span>
+        </div>
+
+        <h2 id="questions-list-title">Answer the questions in order</h2>
+        <div id="questions-list" class="questions-list"></div>
+      </section>
+
+      <section id="review-section" class="review-panel" hidden>
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Review</p>
+            <h2>Review Mistakes</h2>
+          </div>
+          <p id="final-score"></p>
+        </div>
+        <div id="mistakes-list" class="mistakes-list"></div>
+      </section>
+
+      <section id="teacher-submission-section" class="teacher-submission-panel" hidden>
+        <div class="review-header">
+          <div>
+            <p class="eyebrow">Teacher record</p>
+            <h2>Submit to Teacher</h2>
+          </div>
+          <p id="submission-score-summary"></p>
+        </div>
+
+        <form id="teacher-submission-form" class="teacher-submission-form">
+          <p id="teacher-submission-identity" class="selected-student-summary"></p>
+          <button id="teacher-submit-button" type="submit">Submit to Teacher</button>
+        </form>
+
+        <div id="teacher-submission-status" class="submission-status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="questions-data.js?v=20260518-homework4"></script>
+    <script src="script-homework4.js?v=20260518-homework4"></script>
+  </body>
+</html>
